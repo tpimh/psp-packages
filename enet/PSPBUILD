@@ -26,7 +26,7 @@ package() {
     mkdir -m 755 -p "$pkgdir/psp/lib"
     install -m 644 build/libenet.a "$pkgdir/psp/lib"
     mkdir -m 755 -p "$pkgdir/psp/include"
-    cp -R include "$pkgdir/psp/include"
+    cp -R include/enet "$pkgdir/psp/include"
 
     mkdir -m 755 -p "$pkgdir/psp/share/licenses/$pkgname"
     install -m 644 LICENSE "$pkgdir/psp/share/licenses/$pkgname"
