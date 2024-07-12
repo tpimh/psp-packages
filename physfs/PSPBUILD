@@ -4,23 +4,23 @@ pkgrel=1
 pkgdesc="PhysicsFS; a portable, flexible file i/o abstraction."
 arch=('mips')
 url="https://icculus.org/physfs/"
-license=('Zlib')
+license=('ZLIB')
 depends=()
 makedepends=()
 optdepends=()
 provides=()
 source=(
-"https://github.com/icculus/physfs/archive/refs/tags/release-${pkgver}.tar.gz"
-"psp.patch"
+    "https://github.com/icculus/physfs/archive/refs/tags/release-${pkgver}.tar.gz"
+    "${pkgname}-${pkgver}-PSP.patch"
 )
 sha256sums=(
-"1991500eaeb8d5325e3a8361847ff3bf8e03ec89252b7915e1f25b3f8ab5d560"
-"SKIP"
+    "1991500eaeb8d5325e3a8361847ff3bf8e03ec89252b7915e1f25b3f8ab5d560"
+    "SKIP"
 )
 
 prepare() {
     cd ${pkgname}-release-${pkgver}
-    patch -p1 < ../psp.patch
+    patch -p1 < ../${pkgname}-${pkgver}-PSP.patch
 
     sed -e 's#@CMAKE_INSTALL_PREFIX@#${PSPDEV}/psp#' \
         -e 's#@CMAKE_INSTALL_FULL_LIBDIR@#${prefix}/lib#' \
